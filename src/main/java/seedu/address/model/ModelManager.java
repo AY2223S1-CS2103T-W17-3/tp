@@ -147,4 +147,16 @@ public class ModelManager implements Model {
                 && filteredPersons.equals(other.filteredPersons);
     }
 
+    // =========================================== New stuff ======================================
+    @Override
+    public void addModule(Module module) {
+        addressBook.addModule(module);
+//        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    }
+
+    public int getModuleCount() {
+        // Temporary method for testing
+        return addressBook.getModuleCount();
+    }
+
 }

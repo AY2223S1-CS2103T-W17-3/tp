@@ -2,18 +2,12 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ListCommand;
+import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.logic.parser.exceptions.UnknownPreambleException;
 
@@ -21,6 +15,8 @@ import seedu.address.logic.parser.exceptions.UnknownPreambleException;
  * Parses user input.
  */
 public class AddressBookParser {
+
+    private static final Logger logger = LogsCenter.getLogger(AddressBookParser.class);
 
     /**
      * Used for initial separation of command word and args.
@@ -45,6 +41,10 @@ public class AddressBookParser {
         final String commandWords = matcher.group("commandWords");
         final String arguments = matcher.group("arguments");
         switch (commandWords) {
+
+        case AddModuleCommand.COMMAND_WORD:
+            return new AddModuleCommandParser().parse(arguments);
+
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
@@ -59,6 +59,9 @@ public class AddressBookParser {
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
+
+        case ListModulesCommand.COMMAND_WORD:
+            return new ListModulesCommand();
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();

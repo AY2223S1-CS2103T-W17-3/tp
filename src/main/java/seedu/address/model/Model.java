@@ -84,4 +84,7 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    // =========================================== New stuff ======================================
+    void addModule(Module module);
 }
