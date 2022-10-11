@@ -1,8 +1,12 @@
 package seedu.address.ui;
 
+import static seedu.address.ui.SideButton.STUDENT_LOGO_URL;
+import static seedu.address.ui.SideButton.TUTORIAL_LOGO_URL;
+
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -10,6 +14,7 @@ import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
@@ -50,6 +55,9 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane tutorialListPanelPlaceholder;
 
     @FXML
+    private VBox sideBar;
+
+    @FXML
     private Label listHeader;
 
     @FXML
@@ -79,6 +87,8 @@ public class MainWindow extends UiPart<Stage> {
 
         setAccelerators();
 
+        setSideBar();
+
         helpWindow = new HelpWindow();
     }
 
@@ -88,6 +98,23 @@ public class MainWindow extends UiPart<Stage> {
 
     private void setAccelerators() {
         setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
+    }
+
+    private void setSideBar() {
+        sideBar.getChildren().add(new SideButton("Student", STUDENT_LOGO_URL,
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        handlePerson();
+                    }
+                }).getRoot());
+        sideBar.getChildren().add(new SideButton("Tutorial", TUTORIAL_LOGO_URL,
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        handleTutorial();
+                    }
+                }).getRoot());
     }
 
     /**
