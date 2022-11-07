@@ -48,6 +48,7 @@ Given below are my contributions to the project.
   * Setting up GitHub team org and repo
   * Maintaining issue tracker
 
-* **Review/mentoring contributions**: to be added soon
+* **Review/mentoring contributions**: 
+  * Review teammates' PRs and suggested better design implementation.
 
 * **Contributions beyond the project team**: to be added soon
