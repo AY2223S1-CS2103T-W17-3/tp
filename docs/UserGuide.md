@@ -82,6 +82,8 @@ e.g. [`commands`](glossary) [`PARAMETERS`](glossary)
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always"></div>
+
 ## 4. GUI overview
 
 ![GUI](images/AnnotatedUi.png)
@@ -102,6 +104,8 @@ Displays the list of your chosen tab.
 Displays your list of reminders.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always"></div>
 
 ## 5. Features
 
